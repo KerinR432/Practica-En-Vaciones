@@ -1,3 +1,5 @@
+package src;
+
 public class TresEnRayaExamen {
     private final int[][] tablero = new int[3][3];
     private final int pos = 0;
