@@ -7,6 +7,7 @@ public class UsoVentanita {
         VentanitaIngresos v2 = new VentanitaIngresos();
 
         v1.setVentanaIngreso(v2);
+
         v2.setVentanaPrincipal(v1);
     }
 }

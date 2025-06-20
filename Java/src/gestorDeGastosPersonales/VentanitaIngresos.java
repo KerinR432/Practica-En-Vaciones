@@ -70,6 +70,12 @@ public class VentanitaIngresos extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == btoIngresar){
+
+        }
+        if(e.getSource()==btoEliminar){
+
+        }
         if(e.getSource()==btoVolver){
             this.setVisible(false);
             vPrincipal.setVisible(true);

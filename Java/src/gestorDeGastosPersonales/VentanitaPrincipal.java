@@ -14,7 +14,6 @@ public class VentanitaPrincipal extends JFrame implements ActionListener {
 
     public VentanitaPrincipal(){
         super("Ventana Principal");
-        this.setBackground(Color.gray);
         this.setBounds(0,0,450,450);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,6 +26,7 @@ public class VentanitaPrincipal extends JFrame implements ActionListener {
     public void setVentanaIngreso(VentanitaIngresos vI){
         vIngresos = vI;
     }
+
 
     private void constructorPanel(){
 
@@ -41,6 +41,7 @@ public class VentanitaPrincipal extends JFrame implements ActionListener {
         btoAnalisis = new JButton("Analisis");
         btoAnalisis.setFont(new Font("Arial",Font.BOLD,14));
         panel.add(btoAnalisis,BorderLayout.CENTER);
+        btoAnalisis.addActionListener(this);
 
         btogastos = new JButton("Gastos de semana");
         btogastos.setFont(new Font("Arial",Font.BOLD,14));
@@ -56,6 +57,9 @@ public class VentanitaPrincipal extends JFrame implements ActionListener {
             if (e.getSource() == btoIngreso){
                 this.setVisible(false);
                 vIngresos.setVisible(true);
+            }
+            if (e.getSource()==btoAnalisis){
+
             }
     }
 
