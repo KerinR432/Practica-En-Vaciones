@@ -2,7 +2,6 @@ package src;
 
 public class TresEnRayaExamen {
     private final int[][] tablero = new int[3][3];
-    private final int pos = 0;
     private int fichaJugador1;
     private int fichaJugador2;
 
@@ -11,9 +10,6 @@ public class TresEnRayaExamen {
     }
 
     public void eligeFichero1(int fichaEliegida) {
-        /**if (fichaEliegida!=1 && fichaEliegida!=2) {
-            fichaJugador1=1;
-        }*/
         if (fichaEliegida == 1) {
             fichaJugador1 = 1;
         }
@@ -57,15 +53,6 @@ public class TresEnRayaExamen {
         }
     }
 
-    public void mueveOrdenador2J(int pos) {
-        if (movimientoValido(pos)) {
-            tablero[(pos - 1) / 3][(pos - 1) % 3] = fichaJugador2;
-            DibujaTablero();
-        } else {
-            System.out.println("numero no valido escribre otro");
-        }
-    }
-
     public void mueveOrdenador2(int pos) {
         if (movimientoValido(pos)) {
             tablero[(pos - 1) / 3][(pos - 1) % 3] = 2;
@@ -83,9 +70,9 @@ public class TresEnRayaExamen {
     }
 
     public boolean quedanMovimientos() {
-        for (int i = 0; i < tablero.length; i++) {
+        for (int[] ints : tablero) {
             for (int j = 0; j < tablero.length; j++) {
-                if (tablero[i][j] == 0) {
+                if (ints[j] == 0) {
                     return true;
                 }
 
@@ -95,7 +82,6 @@ public class TresEnRayaExamen {
     }
 
     public boolean ganaJugador1() {
-        int Eganador1 = 0;
         if (tablero[0][0] == fichaJugador1 && tablero[0][1] == fichaJugador1 && tablero[0][2] == fichaJugador1) {
             return true;
         }
@@ -122,7 +108,6 @@ public class TresEnRayaExamen {
     }
 
     public boolean ganaJugador2() {
-        int Eganador1 = 0;
         if (tablero[0][0] == fichaJugador2 && tablero[0][1] == fichaJugador2 && tablero[0][2] == fichaJugador2) {
             return true;
         }
@@ -148,7 +133,6 @@ public class TresEnRayaExamen {
     }
 
     public boolean ganaMaquina1() {
-        int Eganador1 = 0;
         if (tablero[0][0] == 1 && tablero[0][1] == 1 && tablero[0][2] == 1) {
             return true;
         }
@@ -167,15 +151,11 @@ public class TresEnRayaExamen {
         if (tablero[0][0] == 1 && tablero[1][0] == 1 && tablero[2][0] == 1) {
             return true;
         }
-        if (tablero[0][1] == 1 && tablero[1][1] == 1 && tablero[2][1] == 1) {
-            return true;
-        }
-        return false;
+        return tablero[0][1] == 1 && tablero[1][1] == 1 && tablero[2][1] == 1;
 
     }
 
     public boolean ganaMaquina2() {
-        int Eganador1 = 0;
         if (tablero[0][0] == 2 && tablero[0][1] == 2 && tablero[0][2] == 2) {
             return true;
         }
@@ -194,16 +174,13 @@ public class TresEnRayaExamen {
         if (tablero[0][0] == 2 && tablero[1][0] == 2 && tablero[2][0] == 2) {
             return true;
         }
-        if (tablero[0][1] == 2 && tablero[1][1] == 2 && tablero[2][1] == 2) {
-            return true;
-        }
-        return false;
+        return tablero[0][1] == 2 && tablero[1][1] == 2 && tablero[2][1] == 2;
     }
 
 
     public void DibujaTablero() {//mostramos el tablero
         System.out.println("-------------------");
-        char simbolo = ' ';
+        char simbolo;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (tablero[i][j] == 1) {

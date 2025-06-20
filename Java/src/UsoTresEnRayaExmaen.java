@@ -9,8 +9,8 @@ public class UsoTresEnRayaExmaen {
 
     public static void main(String[] args) {
         TresEnRayaExamen juego = new TresEnRayaExamen();
-        int opcion = 0, contJ1 = 0, contJ2 = 0, contJ12Em = 0, opcion3, fichaElegida = 0;
-        int pos = 0, contO1 = 0, contO2 = 0, contO12Em = 0, contIPartidas = 0;
+        int opcion, contJ1 = 0, contJ2 = 0, contJ12Em = 0, opcion3, fichaElegida;
+        int pos, contO2 = 0, contO12Em = 0, contIPartidas = 0;
         do {
             mostrarMenu();
             opcion = scanner.nextInt();
@@ -166,7 +166,7 @@ public class UsoTresEnRayaExmaen {
                     } while (opcion3 != 5);
                     break;
                 case 2:
-                    int opcion1 = 0;
+                    int opcion1;
                     do {
                         System.out.println("1).Estadisticas jugador vs jugador");
                         System.out.println("2).Estadisticas maquina vs maquina");
