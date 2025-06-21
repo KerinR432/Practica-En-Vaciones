@@ -10,6 +10,7 @@ public class VentanitaAnalisis extends JFrame implements ActionListener {
     JPanel panel;
     JLabel etq1,etq2;
     JButton btoAnalisis,btoGenerarCvs,btovolver;
+    VentanitaPrincipal vPrincipal;
     public VentanitaAnalisis(){
         super("Ventana Analisis");
         this.setBounds(0,0,450,450);
@@ -17,8 +18,11 @@ public class VentanitaAnalisis extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new FlowLayout());
         constructorPanel();
-        this.setVisible(true);
 
+    }
+
+    public void setVentanaPrincipal(VentanitaPrincipal vPrincipal){
+        this.vPrincipal = vPrincipal;
     }
 
     public void constructorPanel(){
@@ -38,11 +42,36 @@ public class VentanitaAnalisis extends JFrame implements ActionListener {
         panel.add(etq2);
         etq2.setFont(new Font("Time new Roman",Font.BOLD,14));
 
+        JPanel panelBto = new JPanel();
+        panelBto.setLayout(new FlowLayout(FlowLayout.CENTER,10,0));
+
+        btoAnalisis = new JButton("Analizar");
+        panelBto.add(btoAnalisis);
+        btoAnalisis.setFont(new Font("Arial",Font.BOLD,14));
+
+        btoGenerarCvs = new JButton("Generar CVS");
+        panelBto.add(btoGenerarCvs);
+        btoGenerarCvs.setFont(new Font("Arial",Font.BOLD,14));
+
+        btovolver = new JButton("Volver Pagina Principal");
+        panelBto.add(btovolver);
+        btovolver.setFont(new Font("Arial",Font.BOLD,14));
+        btovolver.addActionListener(this);
+
+        panel.add(panelBto);
+
+        this.add(panel);
+
 
     }
 
 
     public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource()==btovolver){
+            this.setVisible(false);
+            vPrincipal.setVisible(true);
+        }
 
     }
 }
