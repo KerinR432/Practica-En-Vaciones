@@ -87,6 +87,10 @@ public class VentanitaIngresos extends JFrame implements ActionListener {
             if(ingresos.esNegativo()){
                 if (ingresos.fechaExacta()){
                     ingresos.ingresarDatos();
+                }else{
+                    etq1.setText("ERROR, INGRESAS UNA CANTIDAD NEGATIVA");
+                    etq1.setFont(new Font("Ariel",Font.BOLD,30));
+                    etq1.setForeground(Color.red);
                 }
             }else{
                 etq1.setText("ERROR, INGRESAS UNA CANTIDAD NEGATIVA");

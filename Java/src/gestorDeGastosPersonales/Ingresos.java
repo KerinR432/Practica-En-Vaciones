@@ -33,9 +33,12 @@ public class Ingresos {
 
     public void ingresarDatos(){
         try(FileWriter writer = new FileWriter(fileCsv)){
-            writer.append(this.fecha);
-            writer.append((char) this.saldo);
-            writer.append("\n");
+            writer.append("Fecha,Ingreso\n");
+            if (fecha!=null && saldo!=0) {
+                writer.append(this.fecha + ",");
+                writer.append("" + this.saldo);
+                writer.append("\n");
+            }
             System.out.println("Archivo CSV creado exitosamente: " + fileCsv);
 
 
